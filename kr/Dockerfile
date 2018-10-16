@@ -1,12 +1,13 @@
 ARG BUILD_FROM
 FROM $BUILD_FROM
 
-RUN apk add --no-cache jq
+WORKDIR /root
 
-COPY Linux/kr /
-COPY files/.config /
-COPY files/src /
-COPY run.sh /
-RUN chmod a+x /run.sh
+RUN apt-get update && apt-get install -y jq
 
-CMD [ "/run.sh" ]
+ADD Linux/kr /root
+ADD files /root
+ADD run.sh /root
+RUN chmod a+x /root/run.sh
+
+CMD [ "/root/run.sh" ]

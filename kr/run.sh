@@ -11,12 +11,13 @@ HASS_CONFIG_FILE=.config/hass.json
 CLOUD_CONFIG_FILE=.config/cloud.json
 USER_CONFIG_FILE=.config/config.json
 
-jq -n -c -M --arg v "$HASS_CONFIG_FILE" '{"ip":"$HASSIP","port":$HASSPORT}'
-jq -n -c -M --arg v "$CLOUD_CONFIG_FILE" '{"username":"$CLOUDUSERNAME","password":"$CLOUDPASSWORD"}'
+jq -n -c -M --arg ip "$HASSIP" --argjson port $HASSPORT '{"ip":$ip,"port":$port}' > $HASS_CONFIG_FILE
+jq -n -c -M --arg name "$CLOUDUSERNAME" --arg passwd "$CLOUDPASSWORD" '{"username":$name,"password":$passwd}' > $CLOUD_CONFIG_FILE
+
 
 if [ $LISTENPORT ]; then
-  jq -n -c -M --arg v "$USER_CONFIG_FILE" '{"listen": $LISTENPORT}'
+  jq -n -c -M --argjson v $LISTENPORT '{"listen": $v}' > $USER_CONFIG_FILE
 fi
 
 # Startup
-./kr
+/root/kr

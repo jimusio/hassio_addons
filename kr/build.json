@@ -1,0 +1,5 @@
+{
+  "build_from": {
+    "amd64": "ubuntu:16.04"
+  }
+}
