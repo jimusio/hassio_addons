@@ -9,6 +9,9 @@
     "armhf",
     "amd64"
   ],
+  "map": [
+    "share:rw"
+  ],
   "image": "jimus/{arch}-addon-kr",
   "startup": "application",
   "boot": "auto",

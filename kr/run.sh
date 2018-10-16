@@ -19,5 +19,15 @@ if [ $LISTENPORT ]; then
   jq -n -c -M --argjson v $LISTENPORT '{"listen": $v}' > $USER_CONFIG_FILE
 fi
 
+# Create /share/habridge/data folder
+if [ ! -d /share/kr ]; then
+  echo "Creating /share/kr folder. Run code here"
+  mkdir -p /share/kr
+  cp -r .config /share/kr
+  cp -r src /share/kr
+  cp -r /root/kr /share/kr/
+fi
+
+
 # Startup
-/root/kr
+/share/kr/kr
