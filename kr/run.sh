@@ -28,6 +28,7 @@ if [ ! -d /share/kr ]; then
   cp -r /root/kr /share/kr/
 fi
 
+cd /share/kr
 
 # Startup
-/share/kr/kr
+./kr
