@@ -16,6 +16,8 @@
   "startup": "application",
   "boot": "auto",
   "host_network": true,
+  "hassio_role": "default",
+  "homeassistant_api": true,
   "options": {
     "hass_ip": "HASS IP IN LAN",
     "hass_port": 8123,
