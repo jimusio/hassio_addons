@@ -4,7 +4,6 @@
   "slug": "KR",
   "description": "This is a graphic automation editor created by jimus.io",
   "url": "http://blockly.jimus.io/kr",
-  "webui": "http://blockly.jimus.io/kr",
   "arch": [
     "armhf",
     "amd64"
