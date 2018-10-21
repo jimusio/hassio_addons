@@ -1,16 +1,12 @@
 {
   "name": "KR",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "slug": "KR",
   "description": "This is a graphic automation editor created by jimus.io",
   "url": "http://blockly.jimus.io/kr",
-  "webui": "http://[HOST]:[PORT:8181]",
   "arch": [
     "armhf",
     "amd64"
-  ],
-  "map": [
-    "share:rw"
   ],
   "image": "jimus/{arch}-addon-kr",
   "startup": "application",
@@ -19,15 +15,11 @@
   "hassio_role": "default",
   "homeassistant_api": true,
   "options": {
-    "hass_ip": "HASS IP IN LAN",
-    "hass_port": 8123,
     "cloud_username": "KR CLOUD USERNAME",
     "cloud_password": "KR CLOUD PASSWORD",
     "listen_port": 8181
   },
   "schema": {
-    "hass_ip": "str",
-    "hass_port": "int",
     "cloud_username": "str",
     "cloud_password": "str",
     "listen_port": "int?"
