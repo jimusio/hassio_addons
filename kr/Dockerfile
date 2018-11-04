@@ -5,8 +5,7 @@ WORKDIR /root
 
 RUN apt-get update && apt-get install -y jq
 
-ADD Linux/kr /root
-ADD files /root
+ADD Linux/ /root/kr
 ADD run.sh /root
 RUN chmod a+x /root/run.sh
 
