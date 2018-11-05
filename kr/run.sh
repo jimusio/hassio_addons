@@ -5,8 +5,11 @@ CLOUDUSERNAME=$(jq --raw-output ".cloud_username" $CONFIG_PATH)
 CLOUDPASSWORD=$(jq --raw-output ".cloud_password" $CONFIG_PATH)
 LISTENPORT=$(jq --raw-output ".listen_port" $CONFIG_PATH)
 
-CLOUD_CONFIG_FILE=./.config/cloud.json
-USER_CONFIG_FILE=./.config/config.json
+rm -rf /data/.config
+mkdir /data/.config
+
+CLOUD_CONFIG_FILE=/data/.config/cloud.json
+USER_CONFIG_FILE=/data/.config/config.json
 
 jq -n -c -M --arg name "$CLOUDUSERNAME" --arg passwd "$CLOUDPASSWORD" '{"username":$name,"password":$passwd}' > $CLOUD_CONFIG_FILE
 if [ $LISTENPORT ]; then
