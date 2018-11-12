@@ -20,7 +20,9 @@ RUN set -x \
     && if [ $BUILD_ARCH == "aarch64" ]; then KRGO_ARCH="aarch64"; fi \
     && URL_VERSION="https://raw.githubusercontent.com/jimusio/bridge/master/version.json" \
     && KRGO_VERSION=$(curl -s $URL_VERSION | jq -e -r '.krgo') \
-    && wget https://github.com/jimusio/bridge/raw/master/data/go/kr-Linux-${KRGO_ARCH}-${KRGO_VERSION} \
+    && wget https://github.com/jimusio/bridge/raw/master/data/go/kr-Linux-${KRGO_ARCH}-${KRGO_VERSION}.tar.gz \
+    && tar -xvzf kr-Linux-${KRGO_ARCH}-${KRGO_VERSION}.tar.gz \
+    && rm -f kr-Linux-${KRGO_ARCH}-${KRGO_VERSION}.tar.gz \
     && mv kr-Linux-${KRGO_ARCH}-${KRGO_VERSION} kr \
     && chmod a+x kr
 
